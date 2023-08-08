@@ -1,7 +1,5 @@
 import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
-import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts";
 const s3 = new S3Client({region : 'us-east-1'});
-const sts = new STSClient({region : 'us-east-1'});
 import fs from 'fs';
 
 class Main {
