@@ -8,13 +8,17 @@ class Main {
 
     async start(){
         let fileData = [
-            { id: '1', name: 'Item 1', category: 'Category A' }
+            { id: '1', name: 'Item 1', category: 'Category A' },
+            { id: '2', name: 'Item 2', category: 'Category ' }
         ]        
         let promiseArr = [];            
         for(let item of fileData){
             promiseArr.push(this.putItem(item))
         }
         let response = await Promise.allSettled(promiseArr);
+        for(let res of response) {
+            console.log('status : ', res.status);
+        }
         console.log('putItem operation completed');  
     }
     putItem(item){
