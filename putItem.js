@@ -23,6 +23,7 @@ class Main {
     }
     putItem(item){
         return new Promise(async(resolve, reject) => {
+            try{
                 let input = {
                     "Item" : {
                         "id" : {
@@ -40,7 +41,11 @@ class Main {
                 }
                 const command = new PutItemCommand(input);            
                 await client.send(command)                
-                resolve();            
+                resolve(); 
+            } catch (error){
+                console.log('error in putItem ',error.stack);
+            }
+                           
         })    
      
     }
