@@ -23,7 +23,7 @@ function putObject(input) {
         const response = await s3.send(command); 
         resolve(response);       
     } catch (error) {
-        console.log(`error in uploading object ${input} to bucket ${input.Bucket}`);
+        console.log(`error in uploading object to bucket ${input.Bucket}`);
         reject(error);
     }
   });
